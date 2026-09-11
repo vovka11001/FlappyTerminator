@@ -17,7 +17,9 @@ public class BirdMover : MonoBehaviour
    private void Awake()
    {
       _rigidbody2D = GetComponent<Rigidbody2D>();
+      
       _rigidbody2D.freezeRotation = true;
+      
       _minRotation = Quaternion.Euler(0f, 0f, _minRotationZ);
       _maxRotation = Quaternion.Euler(0f, 0f, _maxRotationZ);
    }

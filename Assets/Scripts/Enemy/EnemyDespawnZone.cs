@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class EnemyDespawnZone : MonoBehaviour
 {
-    public event Action<Enemy> EnemyReached;
+    public event Action<EnemyShooter> EnemyReached;
  
     private void OnEnable()
     {
@@ -13,7 +13,7 @@ public class EnemyDespawnZone : MonoBehaviour
  
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out Enemy enemy))
+        if (other.TryGetComponent(out EnemyShooter enemy))
             EnemyReached?.Invoke(enemy);
     }
 }

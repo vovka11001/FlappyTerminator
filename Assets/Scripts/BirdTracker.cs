@@ -11,5 +11,4 @@ public class BirdTracker : MonoBehaviour
       position.x = _bird.transform.position.x + _xOffset;
       transform.position = position;
    }
-   
 }

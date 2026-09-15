@@ -10,6 +10,7 @@ public class BirdMover : MonoBehaviour
    [SerializeField] private float _rotationSpeed;
    [SerializeField] private float _speed;
    
+   private Vector2 _startPosition;
    private Rigidbody2D _rigidbody2D;
    private Quaternion _minRotation;
    private Quaternion _maxRotation;
@@ -23,6 +24,11 @@ public class BirdMover : MonoBehaviour
       _minRotation = Quaternion.Euler(0f, 0f, _minRotationZ);
       _maxRotation = Quaternion.Euler(0f, 0f, _maxRotationZ);
    }
+
+   private void Start()
+   {
+      _startPosition = transform.position;
+   }
    
    private void Update()
    {
@@ -33,5 +39,12 @@ public class BirdMover : MonoBehaviour
    {
       _rigidbody2D.velocity = new Vector2(_speed,_jumpForce);
       transform.rotation = _maxRotation;
+   }
+   
+   public void Reset()
+   {
+      transform.position = _startPosition;
+      transform.rotation = Quaternion.identity;
+      _rigidbody2D.velocity = Vector2.zero;
    }
 }

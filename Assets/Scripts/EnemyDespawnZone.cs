@@ -1,0 +1,19 @@
+using System;
+using UnityEngine;
+
+[RequireComponent(typeof(Collider2D))]
+public class EnemyDespawnZone : MonoBehaviour
+{
+    public event Action<Enemy> EnemyReached;
+ 
+    private void OnEnable()
+    {
+        GetComponent<Collider2D>().isTrigger = true;
+    }
+ 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent(out Enemy enemy))
+            EnemyReached?.Invoke(enemy);
+    }
+}

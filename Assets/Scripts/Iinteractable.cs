@@ -1,3 +1,3 @@
-public interface Iinteractable
+public interface IInteractable
 {
 }

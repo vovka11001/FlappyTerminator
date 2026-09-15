@@ -22,7 +22,13 @@ public class Bird : MonoBehaviour
        _birdCollisionHandler.CollisionDetected -= ProcessCollision;
     }
 
-    private void ProcessCollision(Iinteractable interactable)
+    public void Reset()
+    {
+        _birdMover.Reset();
+        _scoreHandler.Reset();
+    }
+
+    private void ProcessCollision(IInteractable interactable)
     {
         if (interactable is Ground or Enemy)
             GameOver?.Invoke();

@@ -202,7 +202,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &10951980
 SpriteRenderer:
@@ -338,7 +338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 31808338}
-  - component: {fileID: 31808339}
+  - component: {fileID: 31808340}
   m_Layer: 0
   m_Name: StartScreen
   m_TagString: Untagged
@@ -366,18 +366,19 @@ RectTransform:
   m_AnchoredPosition: {x: 245, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &31808339
-CanvasGroup:
+--- !u!114 &31808340
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31808337}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990a89b351ed9fb49b76e6191f250f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionButton: {fileID: 823180113}
 --- !u!1 &258743516
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +517,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -530,7 +531,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.2, y: 2.1}
+  m_Size: {x: 19.2, y: 2.31}
   m_EdgeRadius: 0
 --- !u!114 &258743521
 MonoBehaviour:
@@ -663,7 +664,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314108964}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -685,7 +686,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -699,7 +700,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.2, y: 2.1}
+  m_Size: {x: 19.2, y: 2.31}
   m_EdgeRadius: 0
 --- !u!95 &314108967
 Animator:
@@ -932,6 +933,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1031,6 +1033,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bird: {fileID: 10951981}
   _xOffset: 1
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0371e588b2b401795f5a5defd825e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _endScreen: {fileID: 888160661}
+  _startScreen: {fileID: 31808340}
+  _bird: {fileID: 10951981}
 --- !u!1 &823180111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1061,7 @@ GameObject:
   - component: {fileID: 823180114}
   - component: {fileID: 823180113}
   m_Layer: 0
-  m_Name: Button
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1161,15 +1178,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 888160658}
-  - component: {fileID: 888160660}
   - component: {fileID: 888160659}
+  - component: {fileID: 888160661}
   m_Layer: 0
   m_Name: EndScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &888160658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1200,18 +1217,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888160657}
   m_CullTransparentMesh: 1
---- !u!225 &888160660
-CanvasGroup:
+--- !u!114 &888160661
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888160657}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864bdd9af6f540b43a2b4a8ec48cf9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionButton: {fileID: 1216720688}
 --- !u!1 &934247989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1458,7 @@ GameObject:
   - component: {fileID: 1216720689}
   - component: {fileID: 1216720688}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: EndButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1872,7 +1890,7 @@ GameObject:
   - component: {fileID: 2056870818}
   - component: {fileID: 2056870817}
   m_Layer: 0
-  m_Name: Image
+  m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
